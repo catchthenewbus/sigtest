@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.14)
+project(sigtest)
+include_directories(/usr/local/include)
+find_library(LIBGLOG glog)
+find_package(OpenSSL REQUIRED)
+file(GLOB SOURCES "src/*.cpp")
+add_executable(sigtest "${SOURCES}")
+target_link_libraries(sigtest OpenSSL::SSL "${LIBGLOG}")
